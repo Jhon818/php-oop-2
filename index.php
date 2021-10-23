@@ -60,9 +60,20 @@ class ShopOnline
  *
  *
  */
+#check validation cards
 trait CreditCards
 {
-    public $CreditCard = ['fhsofhsfhs11111', 555, '20,30'];
+    private $CreditCard = [];
+    public function setCredit($CreditCard)
+    {
+      
+        if (is_array($CreditCard)) {
+            $this->CreditCard = $CreditCard;
+            var_dump($CreditCard);
+        }
+        throw new \Exception("Error Processing Request");
+
+    }
 }
 
 $shop = new ShopOnline($_GET['cart'], $_GET['discount'], $_GET['item'], $_GET['premium']);
